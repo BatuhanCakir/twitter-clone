@@ -1,0 +1,18 @@
+
+POST http://localhost:5000/api/auth/login HTTP/1.1
+content-type: application/json
+
+{
+    "firstName" :"batuhan",
+    "lastName" : "cakir",
+    "email" : "sdasd",
+    "age" : 24 ,
+    "password" : "batuhan99",
+    "username" : "batuhansssssssssssssss"
+
+}
+
+###
+Get http://localhost:5000/api/user HTTP/1.1
+
+content-type: application/json
