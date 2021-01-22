@@ -13,7 +13,47 @@ const bookmarkRoute = require('./src/api/bookmark');
 const profileRoute = require('./src/api/user')
 const tweetRoute = require('./src/api/tweet')
 
+if (process.env.NODE_ENV ==="production")
+{
+  
+  createConnection({
+    type: "postgres",
+    url : process.env.DATABASE_URL
+  }).then(() => {
+    
+  
+    const app: Application = express();
+    app.use(cookieParser());
+    app.use(express.json());
+    // support parsing of application/json type post data
+    app.use(bodyParser.json());
+    app.use(express.static(path.join(__dirname, "client/build")))
+  
+  
+    console.log();
+    
+    app.use('/api/auth', authRoute.router);
+    app.use('/api/user', profileRoute);
+    app.use('/api/tweet', tweetRoute);
+    app.use('/api/bookmark', bookmarkRoute);
+    // register routes
 
+    
+    app.get("*", (req: Request, res: Response) => {
+      console.log(req.body);
+        
+      res.sendFile(path.join(__dirname, "client/build/index.html"));
+    });
+
+    
+
+    // start express server
+    app.listen(PORT, () => {
+      console.log("Listening");
+       
+    });
+  })
+ };
 
 createConnection().then(() => {
     
@@ -26,11 +66,7 @@ createConnection().then(() => {
     // support parsing of application/json type post data
     app.use(bodyParser.json());
       
-  if (process.env.NODE_ENV ==="production")
-  {
-     app.use(express.static(path.join(__dirname, "client/build")))
-  };
- 
+  
     console.log();
     
     app.use('/api/auth', authRoute.router);
