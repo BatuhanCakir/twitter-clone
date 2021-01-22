@@ -21,9 +21,14 @@
       "reflect-metadata": "^0.1.13",
       "typeorm": "0.2.29"
    },
+   "engines": {
+      "node" : "12.18.3",
+      "npm" : "6.14.6"
+   },
    "scripts": {
       "start": "ts-node index.ts",
       "dev": "nodemon  index.ts -e ts,tsx --exec ts-node index.ts ",
       "heroku-postbuild" : " cd client && npm install && npm run build"
+
    }
 }
