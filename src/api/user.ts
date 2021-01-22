@@ -110,7 +110,7 @@ router.post('/follow', async (req: Request, res: Response) => {
   return res.sendStatus(200);
 })
 
-router.post('/getNotFollowedUser', async (req: Request, res: Response) => {
+router.post('/getNotFollowedUser',auth, async (req: Request, res: Response) => {
   console.log(req.body);
   
   const userRepository = getRepository(User);
