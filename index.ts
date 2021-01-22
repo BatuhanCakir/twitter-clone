@@ -13,12 +13,11 @@ const bookmarkRoute = require('./src/api/bookmark');
 const profileRoute = require('./src/api/user')
 const tweetRoute = require('./src/api/tweet')
 
-if (process.env.NODE_ENV ==="production")
-{
+if (process.env.NODE_ENV === "production") {
   
   createConnection({
     type: "postgres",
-    url : process.env.DATABASE_URL
+    url: process.env.DATABASE_URL
   }).then(() => {
     
   
@@ -53,9 +52,9 @@ if (process.env.NODE_ENV ==="production")
        
     });
   })
- };
+} else {
 
-createConnection().then(() => {
+  createConnection().then(() => {
     
     
 
@@ -71,13 +70,13 @@ createConnection().then(() => {
     
     app.use('/api/auth', authRoute.router);
     app.use('/api/user', profileRoute);
-    app.use('/api/tweet',tweetRoute);
-    app.use('/api/bookmark',bookmarkRoute);
-        // register routes
+    app.use('/api/tweet', tweetRoute);
+    app.use('/api/bookmark', bookmarkRoute);
+    // register routes
 
     
     app.get("*", (req: Request, res: Response) => {
-        console.log(req.body);
+      console.log(req.body);
         
       res.sendFile(path.join(__dirname, "client/build/index.html"));
     });
@@ -89,4 +88,5 @@ createConnection().then(() => {
       console.log("Listening");
        
     });
-});
+  });
+}
