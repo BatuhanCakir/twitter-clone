@@ -17,7 +17,10 @@ if (process.env.NODE_ENV === "production") {
   
   createConnection({
     type: "postgres",
-    url: process.env.DATABASE_URL
+    url: process.env.DATABASE_URL,
+    "entities": [
+      "src/entity/**/*.ts"
+   ]
   }).then(() => {
     
   
