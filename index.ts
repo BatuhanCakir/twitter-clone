@@ -26,7 +26,7 @@ if (process.env.NODE_ENV === "production") {
     app.use(express.json());
     // support parsing of application/json type post data
     app.use(bodyParser.json());
-    app.use(express.static(path.join(__dirname, "client/build")))
+    app.use(express.static(path.join(__dirname, "../client/build")))
   
   
     console.log();
