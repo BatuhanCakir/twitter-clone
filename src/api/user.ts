@@ -111,6 +111,8 @@ router.post('/follow', async (req: Request, res: Response) => {
 })
 
 router.post('/getNotFollowedUser', async (req: Request, res: Response) => {
+  console.log(req.body);
+  
   const userRepository = getRepository(User);
   userRepository.find({
     take: 4

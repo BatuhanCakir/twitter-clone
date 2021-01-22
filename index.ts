@@ -8,10 +8,10 @@ import bodyParser from 'body-parser';
 const PORT = process.env.PORT || 5000
 const path = require("path");
 
-const authRoute = require('./api/auth');
-const bookmarkRoute = require('./api/bookmark');
-const profileRoute = require('./api/user')
-const tweetRoute = require('./api/tweet')
+const authRoute = require('./src/api/auth');
+const bookmarkRoute = require('./src/api/bookmark');
+const profileRoute = require('./src/api/user')
+const tweetRoute = require('./src/api/tweet')
 
 
 
@@ -26,7 +26,12 @@ createConnection().then(() => {
     // support parsing of application/json type post data
     app.use(bodyParser.json());
       
-    app.use(express.static(path.join(__dirname,"../twitter-frontent/build")))
+  if (process.env.NODE_ENV ==="production")
+  {
+    
+  };
+  app.use(express.static(path.join(__dirname, "client/build")))
+    console.log();
     
     app.use('/api/auth', authRoute.router);
     app.use('/api/user', profileRoute);
@@ -38,7 +43,7 @@ createConnection().then(() => {
     app.get("*", (req: Request, res: Response) => {
         console.log(req.body);
         
-      res.sendFile(path.join(__dirname, "../twitter-frontend/build/index.html"));
+      res.sendFile(path.join(__dirname, "client/build/index.html"));
     });
 
     

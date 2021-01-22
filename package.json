@@ -22,7 +22,8 @@
       "typeorm": "0.2.29"
    },
    "scripts": {
-      "start": "ts-node src/index.ts",
-      "dev": "nodemon  src/index.ts -e ts,tsx --exec ts-node src/index.ts "
+      "start": "ts-node index.ts",
+      "dev": "nodemon  index.ts -e ts,tsx --exec ts-node index.ts ",
+      "heroku-postbuild" : " cd client && npm install && npm run build"
    }
 }
