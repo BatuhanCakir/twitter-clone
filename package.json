@@ -30,7 +30,7 @@
       "start": "cd dist && node index.js",
       "dev": "nodemon  index.ts -e ts,tsx --exec ts-node index.ts ",
       "tsc" : "tsc",
-      "heroku-postbuild" : " npm run tsc  client && npm install && npm run build"
+      "heroku-postbuild" : " npm run tsc && cd  client && npm install && npm run build"
 
    }
 }
