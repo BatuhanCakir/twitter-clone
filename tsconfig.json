@@ -29,10 +29,10 @@
       "emitDecoratorMetadata": true
    },
    "exclude": [
-      "node_modules"
+      "node_modules",
+      "client"
    ],
    "include": [
-      "./src/**/*.tsx",
-      "./src/**/*.ts"
+      "./**/*.ts"
    ]
 }

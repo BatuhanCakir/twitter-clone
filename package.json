@@ -27,9 +27,10 @@
       "npm" : "6.14.6"
    },
    "scripts": {
-      "start": "ts-node index.ts",
+      "start": "cd dist && node index.js",
       "dev": "nodemon  index.ts -e ts,tsx --exec ts-node index.ts ",
-      "heroku-postbuild" : " cd client && npm install && npm run build"
+      "tsc" : "tsc",
+      "heroku-postbuild" : " npm run tsc  client && npm install && npm run build"
 
    }
 }

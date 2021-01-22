@@ -1,0 +1,1 @@
+{"version":3,"file":"Subscription.js","sourceRoot":"","sources":["../../../src/entity/Subscription.ts"],"names":[],"mappings":";;;;;;;;;;;;AAAA,qCAAgF;AAGhF,IAAa,YAAY,GAAzB,MAAa,YAAY;CAaxB,CAAA;AAXG;IADA,gCAAsB,EAAE;;wCACb;AAEX;IADA,gBAAM,EAAE;;4CACO;AAGf;IADC,gBAAM,EAAE;;gDACU;AAGrB;IADC,0BAAgB,EAAE;8BACR,IAAI;+CAAC;AAVL,YAAY;IADxB,gBAAM,EAAE;GACI,YAAY,CAaxB;AAbY,oCAAY"}
