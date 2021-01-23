@@ -20,7 +20,8 @@ if (process.env.NODE_ENV === "production") {
     url: process.env.DATABASE_URL,
     "entities": [
       "src/entity/**/*.js"
-   ],
+    ],
+     "synchronize": true,
   }).then(() => {
     
   
