@@ -19,8 +19,8 @@ if (process.env.NODE_ENV === "production") {
     type: "postgres",
     url: process.env.DATABASE_URL,
     "entities": [
-      "../src/entity/**/*.ts"
-   ]
+      "src/entity/**/*.ts"
+   ],
   }).then(() => {
     
   
@@ -54,6 +54,9 @@ if (process.env.NODE_ENV === "production") {
       console.log("Listening");
        
     });
+  }).catch((data) => {
+    console.log(data);
+    
   })
 } else {
 
