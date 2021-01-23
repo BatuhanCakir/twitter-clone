@@ -19,7 +19,7 @@ if (process.env.NODE_ENV === "production") {
     type: "postgres",
     url: process.env.DATABASE_URL,
     "entities": [
-      "../src/entity/**/*.ts"
+      "src/entity/**/*.js"
    ],
   }).then(() => {
     
